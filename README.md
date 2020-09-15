@@ -1,5 +1,5 @@
-# OBSTimeDisplayPlugin
-A JavaScript plugin to display current time and date
+# OBSTimeDDisplayPlugin
+A JavaScript plugin to display current time and date (yes the double Ds in the name are on purpose, it's a thing for my programs)  
 
 
 Displays current time and date in a 12 hour format with month spelled out and date with st/nd/rd/th format as per example:  
