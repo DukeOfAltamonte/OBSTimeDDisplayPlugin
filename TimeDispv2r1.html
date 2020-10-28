@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<body onload = "dispTime()" >
+
+<span id = 'timeStdDisp'></span><span id = 'ampmDisp'></span>
+<span id = 'timeMilDisp' hidden></span>
+ <span id = 'dayOfWeekDisp'></span>
+ <span id = 'monthNameDisp'></span>
+ <span id = 'dayOfMonthDisp'></span><span id = 'dayModDisp'></span>
+ <span id = 'yearDisp'></span>
+
+
+
+<script>
+//By TJones/DukeOfAltamonte  Sept 2020
+function dispRefTime()  {
+   var refreshTime = 1000;
+   mytime=setTimeout("dispTime()", refreshTime);
+}   
+
+
+function dispTime() {
+  var dateRawInfo = Date();
+  var dayOfMonth = parseInt(dateRawInfo.substring(8,10)); //parseInt will remove leading 0 from dates < 10 as well as helping with day mod calculation
+  var dayOfWeek;
+  var dayOfMonthMod;
+  var hourTimeMod;
+  var dateMonthNameVals = ["January", "February", "March", "April", "May", "June",
+                           "July", "August", "September", "October", "November", "December"];
+  var dateMonthName = dateMonthNameVals[new Date().getMonth()];
+  var dateYear = dateRawInfo.substring(11,15); 
+  var hourTime = parseInt(dateRawInfo.substring(16,18));
+  var minTime = dateRawInfo.substring(19,21);
+  var timeMil = dateRawInfo.substring(16,21);
+  
+  
+  var dispTimeFull; 
+   
+  
+  //Create the full day of the week instead of using 3 char Date() value - used to show switch usage in a script
+  switch (new Date().getDay()) {
+  case 0:
+    dayOfWeek = "Sunday";
+    break;
+  case 1:
+    dayOfWeek = "Monday";
+    break;
+  case 2:
+    dayOfWeek = "Tuesday";
+    break;
+  case 3:
+    dayOfWeek = "Wednesday";
+    break;
+  case 4:
+    dayOfWeek = "Thursday";
+    break;
+  case 5:
+    dayOfWeek = "Friday";
+    break;
+  case 6:
+    dayOfWeek = "Saturday";
+  default:
+    dayOfWeek = "Err";
+  }
+  
+  //Create the day of month modifier (st,nd,rd,th)
+  //I COULD use switch(true) for this but have heard that a nested If Then Else is actually faster (more optimized)
+  if ((dayOfMonth == 1) || (dayOfMonth == 21) || (dayOfMonth == 31)) {
+      dayOfMonthMod = "st";
+      } else if ((dayOfMonth == 2) || (dayOfMonth == 22)) {
+	  dayOfMonthMod = "nd";
+	  } else if ((dayOfMonth == 3) || (dayOfMonth == 23)) {
+	  dayOfMonthMod = "rd";
+	  } else {
+	  dayOfMonthMod = "th";
+	  }
+   
+   
+  if (hourTime > 11) {
+      hourTimeMod = "PM";
+	  } else {
+	  hourTimeMod = "AM";
+	  }
+	  
+  if (hourTime > 12) {
+	  hourTime = hourTime - 12;
+	  }	  
+
+
+dispTimeFull = hourTime + ":" + minTime + hourTimeMod + " " + dayOfWeek + " " + dateMonthName + " " + dayOfMonth + dayOfMonthMod + " " + dateYear;
+
+ 
+
+
+document.getElementById('timeStdDisp').innerHTML = hourTime + ":" + minTime;
+document.getElementById('timeMilDisp').innerHTML = timeMil;
+document.getElementById('ampmDisp').innerHTML = hourTimeMod;
+document.getElementById('dayOfWeekDisp').innerHTML =  dayOfWeek;
+document.getElementById('monthNameDisp').innerHTML =  dateMonthName;
+document.getElementById('dayOfMonthDisp').innerHTML = dayOfMonth;
+document.getElementById('dayModDisp').innerHTML =  dayOfMonthMod;
+document.getElementById('yearDisp').innerHTML = dateYear;
+  
+dispRefTime();
+ 
+}
+
+</script>
+
+
+
+
+</body>
+</html> 
