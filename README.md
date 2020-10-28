@@ -25,7 +25,7 @@ Issue with Saturday showing as ERR
 Fixed issue with 12:00 - 12:59 showing as AM instead of PM in 12 hour mode  
 ______________________________________________  
   
-With these new sections you can update each area to your liking via CSS in OBS without changing any of the script code itself, or display military time format while hiding standard time format. The following are some of the ways you can update the display in Custom CSS field in OBS.  
+With these sections implemented in v2.0 you can update each area to your liking via CSS in OBS without changing any of the script code itself, or display military time format while hiding standard time format. The following are some of the ways you can update the display in Custom CSS field in OBS.  
 
 Update font information for all items(this sets to Arial, 12 pixels):  
 body { background-color: rgba(0, 0, 0, 0); margin: 0px auto; overflow: hidden; font-family: Arial; font-size: 12px;}  
