@@ -8,11 +8,9 @@ Displays current time and date in a 12 hour format with month spelled out and da
 
 To use: Download and unzip HTML file. Then add to OBS as a Browser source, make sure to check "local file", and point to this HTML file locally saved on your hard drive.
 Height and width will vary depending on font used (see below on how to customize), but I have seen that width in the 200 - 250 range and height in the 20-50 range work pretty well for a 12 point font.  
-
-
-
+  
+______________________________________________  
 V2.0 update - created sections:  
-
 timeStdDisp (shows standard time),  
 ampmDisp (AM/PM),  
 timeMilDisp (shows time in "military" format, default hidden),  
@@ -21,7 +19,12 @@ monthNameDisp (full month name display),
 dayOfMonthDisp (one or two digit day),  
 dayModDisp (st/nd/rd/th),  
 yearDisp (four digit year display)  
-
+  
+V2.1 bugfixes:  
+Issue with Saturday showing as ERR  
+Fixed issue with 12:00 - 12:59 showing as AM instead of PM in 12 hour mode  
+______________________________________________  
+  
 With these new sections you can update each area to your liking via CSS in OBS without changing any of the script code itself, or display military time format while hiding standard time format. The following are some of the ways you can update the display in Custom CSS field in OBS.  
 
 Update font information for all items(this sets to Arial, 12 pixels):  
